@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.api.routes import gp
 
 app = FastAPI(
     title="OrbitalVision API",
@@ -7,8 +8,8 @@ app = FastAPI(
 )
 
 # Include API Routes
-# app.include_router(tle.router, prefix="api/tle", tags=["TLE"])
+app.include_router(gp.router, prefix="/api/gp", tags=["GP"])
 
-@app.get("/")
-def root():
-    return { "message": "Welcome to OrbitalVision API 🛰️"}
+# @app.get("/")
+# def root():
+#     return { "message": "Welcome to OrbitalVision API 🛰️"}
